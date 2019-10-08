@@ -57,7 +57,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Shuriken.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/logonrmlocal/Desktop/NinjaGame/NinjaGaidenFake/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

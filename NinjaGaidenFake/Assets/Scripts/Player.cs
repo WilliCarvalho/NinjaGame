@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public GameObject player;
     public Transform floorVeirfy;
+    public Transform handPivot;
+    public Camera cam;
 
     public float velocity;
     public float jump;
@@ -14,12 +16,16 @@ public class Player : MonoBehaviour
 
     SpriteRenderer sr;
     Rigidbody2D rb;
+    Animator anim;
+    Vector3 initialPositionCam;
     
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        initialPositionCam = cam.transform.position;
     }
 
     // Update is called once per frame
@@ -43,10 +49,19 @@ public class Player : MonoBehaviour
         if(moveX > 0)
         {
             sr.flipX = false;
+            handPivot.transform.eulerAngles = new Vector2(0.0f, 0.0f);
         }
         else if (moveX < 0)
         {
             sr.flipX = true;
+            handPivot.transform.eulerAngles = new Vector2(0.0f, 180.0f);
         }
+
+        //Player animation
+        anim.SetBool("pJump", onFloor);
+        anim.SetFloat("pMove", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+
+        //Cam follows Player
+        cam.transform.position = new Vector3(transform.position.x, cam.transform.position.y, cam.transform.position.z);
     }
 }
