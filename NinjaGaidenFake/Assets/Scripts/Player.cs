@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public GameObject player;
     public Transform floorVeirfy;
     public Transform handPivot;
-    public Camera cam;
+    //public Camera cam;
 
     public float velocity;
     public float jump;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        initialPositionCam = cam.transform.position;
+        //initialPositionCam = cam.transform.position;
     }
 
     // Update is called once per frame
@@ -62,6 +62,6 @@ public class Player : MonoBehaviour
         anim.SetFloat("pMove", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
 
         //Cam follows Player
-        cam.transform.position = new Vector3(transform.position.x, cam.transform.position.y, cam.transform.position.z);
+        //cam.transform.position = new Vector3(transform.position.x, cam.transform.position.y, cam.transform.position.z);
     }
 }
