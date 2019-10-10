@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 15
-  destroyLimit: 50
+  destroyLimit: 20
 --- !u!61 &1400997819189789002
 BoxCollider2D:
   m_ObjectHideFlags: 0

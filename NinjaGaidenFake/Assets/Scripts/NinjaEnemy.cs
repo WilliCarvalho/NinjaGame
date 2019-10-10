@@ -15,7 +15,7 @@ public class NinjaEnemy : MonoBehaviour
 
     public GameObject target;
     public GameObject shuriken;
-    public GameObject hand;
+    public GameObject enemyHand;
 
     public GameObject spot1;
     public GameObject spot2;
@@ -36,6 +36,8 @@ public class NinjaEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite.flipX = true;
         handPivot.transform.eulerAngles = new Vector2(0.0f, 180.0f);
+
+        StartCoroutine(EnemyMovement());
     }
 
     // Update is called once per frame
@@ -49,36 +51,40 @@ public class NinjaEnemy : MonoBehaviour
         onFloor = Physics2D.Linecast(transform.position, floorVeirfy.transform.position,
             1 << LayerMask.NameToLayer("Floor"));
 
-        float distance = Vector2.Distance(transform.position, target.transform.position);
-
-        if(distance< attackLimit && !attack)
-        {
-            jump = 10.0f;
-            rigidbody.AddForce(Vector2.up * jump);
+        //if(distance< attackLimit && !attack)
+        //{
+        //    jump = 10.0f;
+        //    rigidbody.AddForce(Vector2.up * jump);
             
-            if(onFloor == true)
-            {
-                attack = true;
-            }
-        }
+        //    if(onFloor == true)
+        //    {
+        //        attack = true;
+        //    }
+        //}
 
-        if (attack == true)
-        {
-            Instantiate(shuriken, hand.transform.position, transform.rotation);
-            attack = false;
-            StartCoroutine(ChangePosition());
-        }
+        //if (attack == true)
+        //{
+            
+        //    attack = false;
+        //}
+
+        //StartCoroutine(EnemyMovement());
     }
 
-    IEnumerator ChangePosition()
+    IEnumerator EnemyMovement()
     {
-        int spotId = 1;
+        float distance = Vector2.Distance(transform.position, target.transform.position);
 
-        yield return new WaitForSeconds(1.5f);
-
-        if(spotId == 1)
-        {
-            //transform.Translate(spot2.transform.position);
-        }
+        //if (distance < attackLimit)
+        //{
+            if (onFloor = true)
+            {
+            yield return new WaitForSeconds(1.5f);
+            jump = 200.0f;
+                rigidbody.AddForce(Vector2.up * jump);
+            }
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(shuriken, enemyHand.transform.position, transform.rotation);
+        //}
     }
 }
