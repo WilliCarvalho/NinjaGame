@@ -17,7 +17,7 @@ public class Shuriken : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * velocity * Time.deltaTime);
+        transform.Translate(Vector3.right * velocity * Time.deltaTime);
 
         if(transform.position.x >= destroyLimit)
         {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class NinjaEnemy : MonoBehaviour
 {
     public float velocity;
-    public float attackLimit;
     public float jump;
 
     public Transform floorVeirfy;
@@ -13,7 +12,6 @@ public class NinjaEnemy : MonoBehaviour
 
     public bool onFloor;
 
-    public GameObject target;
     public GameObject shuriken;
     public GameObject enemyHand;
 
@@ -21,8 +19,6 @@ public class NinjaEnemy : MonoBehaviour
     public GameObject spot2;
 
     private Vector2 attackPosition;
-
-    private bool attack = false;
 
     private Rigidbody2D rigidbody;
     private SpriteRenderer sprite;
@@ -55,7 +51,7 @@ public class NinjaEnemy : MonoBehaviour
         //{
         //    jump = 10.0f;
         //    rigidbody.AddForce(Vector2.up * jump);
-            
+
         //    if(onFloor == true)
         //    {
         //        attack = true;
@@ -64,7 +60,7 @@ public class NinjaEnemy : MonoBehaviour
 
         //if (attack == true)
         //{
-            
+
         //    attack = false;
         //}
 
@@ -73,18 +69,53 @@ public class NinjaEnemy : MonoBehaviour
 
     IEnumerator EnemyMovement()
     {
-        float distance = Vector2.Distance(transform.position, target.transform.position);
+        int positionId = 1;
 
-        //if (distance < attackLimit)
-        //{
+        while (true)
+        {
+
+
             if (onFloor = true)
             {
-            yield return new WaitForSeconds(1.5f);
-            jump = 200.0f;
+                yield return new WaitForSeconds(1.5f);
+                jump = 200.0f;
                 rigidbody.AddForce(Vector2.up * jump);
             }
+
             yield return new WaitForSeconds(1.5f);
-            Instantiate(shuriken, enemyHand.transform.position, transform.rotation);
-        //}
+
+            if (positionId == 1)
+            {
+                Instantiate(shuriken, enemyHand.transform.position, transform.rotation);
+                yield return new WaitForSeconds(1.5f);
+
+                attackPosition = spot2.transform.position;
+                for (int i = 0; i <= 80; i++)
+                {
+                    yield return new WaitForSeconds(0.01f);
+                    transform.position = Vector2.MoveTowards(transform.position, attackPosition,
+                        velocity * Time.deltaTime);
+                }
+                sprite.flipX = false;
+                handPivot.transform.eulerAngles = new Vector2(0.0f, 0.0f);
+                positionId++;
+            }
+            else if (positionId == 2)
+            {
+                Instantiate(shuriken, enemyHand.transform.position, transform.rotation);
+                yield return new WaitForSeconds(1.5f);
+
+                attackPosition = spot1.transform.position;
+                for (int i = 0; i <= 80; i++)
+                {
+                    yield return new WaitForSeconds(0.01f);
+                    transform.position = Vector2.MoveTowards(transform.position, attackPosition,
+                        velocity * Time.deltaTime);
+                }
+                sprite.flipX = true;
+                handPivot.transform.eulerAngles = new Vector2(0.0f, 180.0f);
+                positionId = 1;
+            }
+        }
     }
 }
