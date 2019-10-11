@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3793064849391362444}
-  - {fileID: 3793064849934124651}
+  - {fileID: 5092878738976978696}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -194,11 +194,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3793064849672832385}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.68, y: 0.015999928, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3793064849934124651}
+  m_Father: {fileID: 5092878738976978696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3793064849672832387
@@ -216,7 +216,7 @@ MonoBehaviour:
   shurikenPrefab: {fileID: 8118145303706585790, guid: 97093640f98ebf7448b3447e1d969b69,
     type: 3}
   hand: {fileID: 3793064849672832385}
---- !u!1 &3793064849934124650
+--- !u!1 &8277757508470263939
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3793064849934124651}
+  - component: {fileID: 5092878738976978696}
   m_Layer: 0
   m_Name: HandPivot
   m_TagString: Untagged
@@ -232,15 +232,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3793064849934124651
+--- !u!4 &5092878738976978696
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793064849934124650}
+  m_GameObject: {fileID: 8277757508470263939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.17, z: 0}
+  m_LocalPosition: {x: 0, y: -0.186, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3793064849672832386}

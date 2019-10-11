@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 330505922}
   floorVeirfy: {fileID: 1173469356}
-  handPivot: {fileID: 1717018443}
+  handPivot: {fileID: 1549700631}
   velocity: 8
   jump: 250
   onFloor: 0
@@ -2681,6 +2681,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &1549700631 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5092878738976978696, guid: 31f359f567bbd8446a7cb1129d376189,
+    type: 3}
+  m_PrefabInstance: {fileID: 3793064848218102048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1688294466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,18 +2733,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1717018443 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3793064849934124651, guid: 31f359f567bbd8446a7cb1129d376189,
-    type: 3}
-  m_PrefabInstance: {fileID: 3793064848218102048}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1717319239 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8000584655804450454, guid: c43a04141b4607f4884fa93af6c33145,
-    type: 3}
-  m_PrefabInstance: {fileID: 6603514249174298580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3793064848218102048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2876,10 +2870,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1769391258, guid: c43a04141b4607f4884fa93af6c33145, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 330505922}
-    - target: {fileID: 1769391258, guid: c43a04141b4607f4884fa93af6c33145, type: 3}
       propertyPath: spot1
       value: 
       objectReference: {fileID: 247158901}
@@ -2887,18 +2877,5 @@ PrefabInstance:
       propertyPath: spot2
       value: 
       objectReference: {fileID: 379494232}
-    - target: {fileID: 1769391258, guid: c43a04141b4607f4884fa93af6c33145, type: 3}
-      propertyPath: enemyHand
-      value: 
-      objectReference: {fileID: 1717319239}
-    - target: {fileID: 1769391258, guid: c43a04141b4607f4884fa93af6c33145, type: 3}
-      propertyPath: velocity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000584655804450453, guid: c43a04141b4607f4884fa93af6c33145,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.841
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c43a04141b4607f4884fa93af6c33145, type: 3}

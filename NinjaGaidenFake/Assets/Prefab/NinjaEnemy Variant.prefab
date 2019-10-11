@@ -12,16 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59dd72c078ee254ba5674bc2dd9b8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
-  attackLimit: 10
+  velocity: 10
   jump: 0
   floorVeirfy: {fileID: 8000584656121586331}
-  handPivot: {fileID: 8000584656602219900}
+  enemy: {fileID: 8000584656830579952}
   onFloor: 0
-  target: {fileID: 0}
   shuriken: {fileID: 8118145303706585790, guid: 97093640f98ebf7448b3447e1d969b69,
     type: 3}
-  hand: {fileID: 8000584655804450454}
+  enemyHand: {fileID: 8000584655804450454}
   spot1: {fileID: 0}
   spot2: {fileID: 0}
 --- !u!1001 &6603514250636772119
@@ -49,7 +47,7 @@ PrefabInstance:
     - target: {fileID: 3793064848548202471, guid: 31f359f567bbd8446a7cb1129d376189,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.96
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 3793064848548202471, guid: 31f359f567bbd8446a7cb1129d376189,
         type: 3}
@@ -96,13 +94,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3793064849672832386, guid: 31f359f567bbd8446a7cb1129d376189,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.841
+      objectReference: {fileID: 0}
     - target: {fileID: 3793064849672832385, guid: 31f359f567bbd8446a7cb1129d376189,
         type: 3}
       propertyPath: m_Name
       value: EnemyHand
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3793064849672832387, guid: 31f359f567bbd8446a7cb1129d376189, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31f359f567bbd8446a7cb1129d376189, type: 3}
 --- !u!1 &8000584656830579957 stripped
 GameObject:
@@ -110,15 +112,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6603514250636772119}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8000584656121586331 stripped
+--- !u!4 &8000584656830579952 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3793064849391362444, guid: 31f359f567bbd8446a7cb1129d376189,
+  m_CorrespondingSourceObject: {fileID: 3793064848548202471, guid: 31f359f567bbd8446a7cb1129d376189,
     type: 3}
   m_PrefabInstance: {fileID: 6603514250636772119}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8000584656602219900 stripped
+--- !u!4 &8000584656121586331 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3793064849934124651, guid: 31f359f567bbd8446a7cb1129d376189,
+  m_CorrespondingSourceObject: {fileID: 3793064849391362444, guid: 31f359f567bbd8446a7cb1129d376189,
     type: 3}
   m_PrefabInstance: {fileID: 6603514250636772119}
   m_PrefabAsset: {fileID: 0}

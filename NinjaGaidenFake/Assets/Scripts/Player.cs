@@ -64,4 +64,23 @@ public class Player : MonoBehaviour
         //Cam follows Player
         //cam.transform.position = new Vector3(transform.position.x, cam.transform.position.y, cam.transform.position.z);
     }
+
+    void OnCollisionEnter2D(Collision2D c)
+    {
+        if (c.gameObject.tag == "Enemy" || c.gameObject.tag == "Shuriken")
+        {
+            StartCoroutine(TookDamage());
+        }
+    }
+
+    IEnumerator TookDamage()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            sr.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            sr.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 }

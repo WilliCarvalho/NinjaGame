@@ -8,7 +8,7 @@ public class NinjaEnemy : MonoBehaviour
     public float jump;
 
     public Transform floorVeirfy;
-    public Transform handPivot;
+    public Transform enemy;
 
     public bool onFloor;
 
@@ -30,8 +30,8 @@ public class NinjaEnemy : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        sprite.flipX = true;
-        handPivot.transform.eulerAngles = new Vector2(0.0f, 180.0f);
+        //handPivot.transform.eulerAngles = new Vector2(0.0f, 180.0f);
+        enemy.transform.eulerAngles = new Vector2(0.0f, 180.0f);
 
         StartCoroutine(EnemyMovement());
     }
@@ -46,25 +46,6 @@ public class NinjaEnemy : MonoBehaviour
         //verify if is on floor
         onFloor = Physics2D.Linecast(transform.position, floorVeirfy.transform.position,
             1 << LayerMask.NameToLayer("Floor"));
-
-        //if(distance< attackLimit && !attack)
-        //{
-        //    jump = 10.0f;
-        //    rigidbody.AddForce(Vector2.up * jump);
-
-        //    if(onFloor == true)
-        //    {
-        //        attack = true;
-        //    }
-        //}
-
-        //if (attack == true)
-        //{
-
-        //    attack = false;
-        //}
-
-        //StartCoroutine(EnemyMovement());
     }
 
     IEnumerator EnemyMovement()
@@ -73,13 +54,14 @@ public class NinjaEnemy : MonoBehaviour
 
         while (true)
         {
-
-
-            if (onFloor = true)
+            if (onFloor == true)
             {
-                yield return new WaitForSeconds(1.5f);
                 jump = 200.0f;
-                rigidbody.AddForce(Vector2.up * jump);
+                for (int i=0; i < 3; i++)
+                {
+                    yield return new WaitForSeconds(1.0f);
+                    rigidbody.AddForce(Vector2.up * jump);
+                }                
             }
 
             yield return new WaitForSeconds(1.5f);
@@ -96,8 +78,8 @@ public class NinjaEnemy : MonoBehaviour
                     transform.position = Vector2.MoveTowards(transform.position, attackPosition,
                         velocity * Time.deltaTime);
                 }
-                sprite.flipX = false;
-                handPivot.transform.eulerAngles = new Vector2(0.0f, 0.0f);
+                //sprite.flipX = true;
+                enemy.transform.eulerAngles = new Vector2(0.0f, 0.0f);
                 positionId++;
             }
             else if (positionId == 2)
@@ -112,10 +94,29 @@ public class NinjaEnemy : MonoBehaviour
                     transform.position = Vector2.MoveTowards(transform.position, attackPosition,
                         velocity * Time.deltaTime);
                 }
-                sprite.flipX = true;
-                handPivot.transform.eulerAngles = new Vector2(0.0f, 180.0f);
+                //sprite.flipX = false;
+                enemy.transform.eulerAngles = new Vector2(0.0f, 180.0f);
                 positionId = 1;
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D c)
+    {
+        if(c.gameObject.tag == "Shuriken")
+        {
+            StartCoroutine(TookDamage());
+        }
+    }
+
+    IEnumerator TookDamage()
+    {
+        for (int i=0; i<3; i++)
+        {
+            sprite.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            sprite.enabled = true;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
