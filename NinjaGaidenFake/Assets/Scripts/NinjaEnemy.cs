@@ -7,10 +7,12 @@ public class NinjaEnemy : MonoBehaviour
     public float velocity;
     public float jump;
 
+    private int life = 3;
+
     public Transform floorVeirfy;
     public Transform enemy;
 
-    public bool onFloor;
+    public bool onFloor;   
 
     public GameObject shuriken;
     public GameObject enemyHand;
@@ -45,7 +47,12 @@ public class NinjaEnemy : MonoBehaviour
 
         //verify if is on floor
         onFloor = Physics2D.Linecast(transform.position, floorVeirfy.transform.position,
-            1 << LayerMask.NameToLayer("Floor"));
+            1 << LayerMask.NameToLayer("Floor"));  
+        
+        if(life == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator EnemyMovement()
@@ -111,6 +118,7 @@ public class NinjaEnemy : MonoBehaviour
 
     IEnumerator TookDamage()
     {
+        life--;
         for (int i=0; i<3; i++)
         {
             sprite.enabled = false;
